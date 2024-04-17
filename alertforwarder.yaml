@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2024-04-17T10:42:22Z"
+  generation: 11
+  name: alertforwarder
+  namespace: openshift-gitops
+  resourceVersion: "1394193"
+  uid: 06032d0f-1db1-4d84-9d60-0c6cf282af7f
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: secretValues.clusterid
+        value: mabato
+      - name: secretValues.endpointURL
+        value: https://webhook.site/8ed0c928-c975-4a39-b888-fd36802072db
+      - name: secretValues.tenantid
+        value: mabato
+    path: charts/alert-forwarder
+    repoURL: https://github.dxc.com/MCP-OCP/alert-forwarder
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
