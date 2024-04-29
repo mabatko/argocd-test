@@ -21,7 +21,7 @@ spec:
       - name: secretValues.tenantid
         value: mabato
     path: charts/alert-forwarder
-    repoURL: https://github.dxc.com/MCP-OCP/alert-forwarder
+    repoURL: git@github.dxc.com:MCP-OCP/alert-forwarder.git
     targetRevision: HEAD
   syncPolicy:
     automated: {}
